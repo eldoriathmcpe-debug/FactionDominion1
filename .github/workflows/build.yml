@@ -1,31 +1,37 @@
 
+
 name: Compiler Faction Dominion
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: FactionDominion
+
     steps:
       - name: Recuperer le code
         uses: actions/checkout@v4
 
       - name: Installer Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+          cache-dependency-path: FactionDominion/pom.xml
 
-      - name: Compiler le plugin
+      - name: Compiler
         run: mvn -B clean package
 
-      - name: Publier le JAR
+      - name: Recuperer le JAR
         uses: actions/upload-artifact@v4
         with:
           name: FactionDominion-JAR
-          path: target/*.jar
+          path: FactionDominion/target/*.jar
