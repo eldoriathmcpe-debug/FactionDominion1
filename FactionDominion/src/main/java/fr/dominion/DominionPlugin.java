@@ -151,7 +151,7 @@ public final class DominionPlugin extends JavaPlugin implements Listener, Comman
         for(String tier:ORES){ItemStack ingot=make(tier+"_ingot");RecipeChoice.ExactChoice choice=new RecipeChoice.ExactChoice(ingot);
             String[][] patterns={{"III","I I","I I"},{"I I","III","III"},{"III","I I","I I"},{"I I","I I","I I"},{" I "," I "," S "},{"III"," S "," S "},{" II"," SI"," S "},{" I "," S "," S "},{"III"," S "," S "}};
             String[] parts={"helmet","chestplate","leggings","boots","sword","pickaxe","axe","shovel","hoe"};
-            for(int i=0;i<parts.length;i++){ItemStack result=gear(tier,parts[i]);ShapedRecipe r=new ShapedRecipe(new NamespacedKey(this,tier+"_"+parts[i]+"_recipe"),result);r.shape(patterns[i]);r.setIngredient('I',choice);if(patterns[i].contains("S"))r.setIngredient('S',Material.STICK);Bukkit.addRecipe(r);}
+            for(int i=0;i<parts.length;i++){ItemStack result=gear(tier,parts[i]);ShapedRecipe r=new ShapedRecipe(new NamespacedKey(this,tier+"_"+parts[i]+"_recipe"),result);r.shape(patterns[i]);r.setIngredient('I',choice);if(String.join("", patterns[i]).contains("S"))r.setIngredient('S',Material.STICK);Bukkit.addRecipe(r);}
         }
     }
 
