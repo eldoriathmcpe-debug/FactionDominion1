@@ -1,0 +1,17 @@
+name: FactionDominion
+version: 1.0.0
+main: fr.dominion.DominionPlugin
+api-version: '1.20'
+author: Faction Dominion
+description: Faction PvP, minerais, équipements et objets personnalisés.
+commands:
+  dominion:
+    description: Administration des objets et systèmes Dominion
+    usage: /dominion give <joueur> <objet> [quantité] | /dominion reload
+    permission: dominion.admin
+  f:
+    description: Gestion des factions Dominion
+    usage: /f <create|invite|join|leave|disband|info|claim|unclaim|who>
+permissions:
+  dominion.admin:
+    default: op

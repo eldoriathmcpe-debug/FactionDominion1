@@ -1,0 +1,29 @@
+world-generation:
+  enabled: true
+  overworld-only: true
+  # Les minerais sont posés dans les chunks nouvellement générés.
+  aetherium: {min-y: -48, max-y: 16, veins-per-chunk: 3, vein-size: 3}
+  pyrium: {min-y: -32, max-y: 32, veins-per-chunk: 2, vein-size: 3}
+  sylvarium: {min-y: 8, max-y: 64, veins-per-chunk: 2, vein-size: 3}
+cave-block:
+  radius: 8
+  refresh-ticks: 20
+  owner-only: true
+unclaim-finder:
+  cooldown-seconds: 8400
+  radius: 24
+hammer:
+  radius: 1
+  durability-cost-per-block: 1
+endglider:
+  slow-falling-seconds: 3
+factions:
+  max-name-length: 16
+  claim-limit-per-member: 4
+  protect-claims: true
+armor-effects:
+  check-period-ticks: 40
+  aetherium: SPEED
+  pyrium: INCREASE_DAMAGE
+  sylvarium: REGENERATION
+  farm: FAST_DIGGING
